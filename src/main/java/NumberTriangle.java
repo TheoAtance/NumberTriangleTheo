@@ -36,6 +36,8 @@ public class NumberTriangle {
     private NumberTriangle left;
     private NumberTriangle right;
 
+    private List<String[]> triangle;
+
     public NumberTriangle(int root) {
         this.root = root;
     }
@@ -52,7 +54,6 @@ public class NumberTriangle {
     public int getRoot() {
         return root;
     }
-
 
     /**
      * [not for credit]
