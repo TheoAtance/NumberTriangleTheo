@@ -1,4 +1,6 @@
 import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * This is the provided NumberTriangle class to be used in this coding task.
@@ -71,6 +73,10 @@ public class NumberTriangle {
         return right == null && left == null;
     }
 
+    public NumberTriangle(List<String[]> triangle) {
+        this.triangle = triangle;
+        this.root = Integer.parseInt(triangle.get(0)[0]);
+    }
 
     /**
      * Follow path through this NumberTriangle structure ('l' = left; 'r' = right) and
@@ -110,25 +116,19 @@ public class NumberTriangle {
         BufferedReader br = new BufferedReader(new InputStreamReader(inputStream));
 
 
-        // TODO define any variables that you want to use to store things
-
-        // will need to return the top of the NumberTriangle,
-        // so might want a variable for that.
-        NumberTriangle top = null;
+        List<String[]> triangle = new ArrayList<>();
 
         String line = br.readLine();
         while (line != null) {
 
-            // remove when done; this line is included so running starter code prints the contents of the file
-            System.out.println(line);
-
-            // TODO process the line
+            String[] row = line.trim().split("\\s+");
+            triangle.add(row);
 
             //read the next line
             line = br.readLine();
         }
         br.close();
-        return top;
+        return new NumberTriangle(triangle);
     }
 
     public static void main(String[] args) throws IOException {
@@ -138,7 +138,7 @@ public class NumberTriangle {
         // [not for credit]
         // you can implement NumberTriangle's maxPathSum method if you want to try to solve
         // Problem 18 from project Euler [not for credit]
-        mt.maxSumPath();
+        // mt.maxSumPath();
         System.out.println(mt.getRoot());
     }
 }
