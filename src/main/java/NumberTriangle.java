@@ -36,6 +36,8 @@ public class NumberTriangle {
     private NumberTriangle left;
     private NumberTriangle right;
 
+    private List<String[]> triangle;
+
     public NumberTriangle(int root) {
         this.root = root;
     }
@@ -52,7 +54,6 @@ public class NumberTriangle {
     public int getRoot() {
         return root;
     }
-
 
     /**
      * [not for credit]
@@ -94,8 +95,15 @@ public class NumberTriangle {
      *
      */
     public int retrieve(String path) {
-        // TODO implement this method
-        return -1;
+        int a = 0;
+        int b = 0;
+        for (int i = 0; i < path.length(); i++) {
+            a++;
+            if (path.charAt(i) == 'r') {
+                b++;
+            }
+        }
+        return Integer.parseInt(triangle.get(a)[b]);
     }
 
     /** Read in the NumberTriangle structure from a file.
